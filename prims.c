@@ -1,8 +1,9 @@
 #include<stdio.h>
 
 
-int cost[10][10],vt[10],et[10][10],vis[10],j,n;
-int sum=0;
+float cost[10][10];
+int vt[10],et[10][10],vis[10],j,n;
+float sum=0;
 int x=1;
 int e=0;
 void prims();
@@ -10,7 +11,7 @@ void prims();
 void main()
 {
    int i;
-   
+
    printf("enter the number of vertices\n");
    scanf("%d",&n);
    printf("enter the cost adjacency matrix\n");
@@ -18,7 +19,7 @@ void main()
    {
        for(j=1;j<=n;j++)
        {
-	  scanf("%d",&cost[i][j]);
+	  scanf("%f",&cost[i][j]);
        }
        vis[i]=0;
     }
@@ -28,13 +29,14 @@ void main()
     {
 	printf("%d,%d\t",et[i][0],et[i][1]);
     }
-    printf("weight=%d\n",sum);
-    
+    printf("weight=%f\n",sum);
+
 }
 
 void prims()
 {
-   int s,min,m,k,u,v;
+   int s,m,k,u,v;
+   float min;
    vt[x]=1;
    vis[x]=1;
    for(s=1;s<n;s++)
